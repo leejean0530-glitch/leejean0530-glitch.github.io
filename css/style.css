@@ -1,0 +1,419 @@
+/* ============================================================
+   李金颖 · 摄影作品集 — 样式表
+   风格：江南细腻风（米白宣纸底 / 墨色宋体 / 印章红点缀）
+   ============================================================ */
+
+/* ---------- 全局变量 ---------- */
+:root {
+  --paper: #FAF7F1;        /* 宣纸底色 */
+  --ink: #2C2A26;          /* 墨色主文字 */
+  --ink-soft: #6E6860;     /* 次级文字 */
+  --ink-faint: #A8A195;    /* 弱化文字 */
+  --seal: #B0442C;         /* 印章红 */
+  --line: #E6DFD2;         /* 细分隔线 */
+  --card: #FFFFFF;         /* 卡片底色 */
+  --serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif;
+  --sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* ---------- 基础 ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* 防止全宽装饰元素（远山/色带）在部分浏览器产生横向滚动条 */
+html, body { overflow-x: hidden; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; width: 100%; height: auto; }
+
+::selection { background: rgba(176, 68, 44, 0.15); }
+
+/* ---------- 顶部导航 ---------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 6vw;
+  background: rgba(250, 247, 241, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  font-size: 17px;
+  letter-spacing: 4px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-logo span {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-faint);
+  margin-left: 8px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin-left: 28px;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover { color: var(--seal); }
+
+/* ---------- Hero 个人信息区 ---------- */
+.hero {
+  position: relative;
+  padding: 150px 6vw 90px;
+  text-align: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* 远山线稿：横向铺满视口，淡淡两笔，位于头像与名字之后 */
+.hero-deco {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 280px;
+  pointer-events: none;
+}
+
+.hero-deco svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-overline {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: var(--seal);
+  margin-bottom: 18px;
+}
+
+.hero-avatar {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  box-shadow: 0 6px 24px rgba(44, 42, 38, 0.08);
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-avatar:hover img { transform: scale(1.05); }
+
+.hero-name {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 500;
+  letter-spacing: 14px;
+  text-indent: 14px; /* 抵消字距产生的视觉偏移，保持居中 */
+  color: var(--ink);
+}
+
+.hero-line {
+  width: 56px;
+  height: 2px;
+  background: var(--seal);
+  margin: 26px auto;
+}
+
+.hero-sub {
+  font-size: 16px;
+  letter-spacing: 6px;
+  color: var(--ink-soft);
+}
+
+/* ---------- 个人信息卡片 ---------- */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 70px;
+  text-align: left;
+}
+
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px 26px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(176, 68, 44, 0.4);
+}
+
+.card-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.card-text {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+/* ---------- 作品板块通用 ---------- */
+.gallery {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 6vw;
+  border-top: 1px solid var(--line);
+}
+
+/* 板块呼吸感：偶数板块（风景/其他）铺一层更暖的底色带，
+   色带横向铺满整个视口，与宣纸底形成深浅交替的层次 */
+.gallery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.gallery:nth-of-type(even)::before {
+  background: #F4EEE2;
+}
+
+.gallery-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "no title"
+    "no desc";
+  column-gap: 22px;
+  align-items: start;
+  margin-bottom: 44px;
+}
+
+.gallery-no {
+  grid-area: no;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: var(--seal);
+  padding-top: 4px;
+}
+
+.gallery-title {
+  grid-area: title;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: var(--ink);
+}
+
+.gallery-en {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+}
+
+.gallery-desc {
+  grid-area: desc;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  max-width: 420px;
+  margin-top: 4px;
+}
+
+/* ---------- 作品网格 ---------- */
+.grid {
+  display: grid;
+  gap: 26px;
+}
+
+.grid-news { grid-template-columns: repeat(2, 1fr); }      /* 新闻：2 列大图 */
+.grid-campus { grid-template-columns: repeat(2, 1fr); }     /* 风景：2 列大图，同新闻 */
+.grid-portrait { grid-template-columns: repeat(2, 1fr); }   /* 人物：2 列竖图 */
+.grid-other { grid-template-columns: repeat(2, 1fr); }      /* 其他：2 列大图，同新闻 */
+
+/* 单张作品卡片 */
+.work {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--card);
+  cursor: pointer;
+}
+
+.work img {
+  transition: transform 0.6s ease;
+  aspect-ratio: 4 / 3;         /* 默认横图比例，竖图在下方单独覆盖 */
+  object-fit: cover;
+}
+
+.grid-portrait .work img { aspect-ratio: 3 / 4; }
+
+/* grid-other 不再强制 1:1，使用默认 4:3，与新闻一致 */
+
+.work:hover img { transform: scale(1.04); }
+
+/* 图片底部渐隐 + 说明文字 */
+.work figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 34px 16px 14px;
+  background: linear-gradient(to top, rgba(44, 42, 38, 0.72), transparent);
+  color: #FAF7F1;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.work:hover figcaption { opacity: 1; transform: translateY(0); }
+
+.work-num {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  color: rgba(250, 247, 241, 0.75);
+}
+
+.work-title {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* 校园风景已改为与新闻一致的两列排版，竖图规则已废弃 */
+
+/* ---------- 页脚 ---------- */
+.footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 80px 6vw 50px;
+  background: #F3EDE0; /* 收尾：比宣纸底稍暖一度，让页面有落款感 */
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 6px;
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--ink-faint);
+  margin-bottom: 34px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.contact-item {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1px solid var(--line);
+  border-radius: 40px;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+a.contact-item:hover {
+  border-color: var(--seal);
+  color: var(--seal);
+}
+
+.footer-note {
+  font-size: 12px;
+  color: var(--ink-faint);
+  letter-spacing: 1px;
+}
+
+/* ---------- 滚动渐入动画 ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 960px) {
+  .grid-campus { grid-template-columns: repeat(2, 1fr); }
+  .grid-portrait { grid-template-columns: repeat(2, 1fr); }
+  .grid-other { grid-template-columns: repeat(2, 1fr); }
+  .info-cards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .nav { padding: 12px 5vw; }
+  .nav-links a { margin-left: 14px; font-size: 12px; }
+  .hero { padding: 120px 5vw 70px; }
+  .hero-deco { top: 90px; height: 210px; }  /* 小屏远山略收矮 */
+  .gallery { padding: 70px 5vw; }
+  .grid-news { grid-template-columns: 1fr; }
+  .grid-campus { grid-template-columns: 1fr; }
+  .grid-portrait { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-other { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .gallery-title { font-size: 21px; }
+  .gallery-head { column-gap: 14px; }
+}
+
+/* 尊重系统"减少动态效果"偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .work img { transition: none; }
+}
