@@ -324,6 +324,67 @@ img { display: block; width: 100%; height: auto; }
 
 /* 校园风景已改为与新闻一致的两列排版，竖图规则已废弃 */
 
+/* ---------- 新闻板块：官方报道链接 ---------- */
+.news-links {
+  margin-top: 44px;
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+}
+
+.news-links-label {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+
+.news-links ul { list-style: none; }
+
+.news-links li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 4px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.news-links li:last-child { border-bottom: none; }
+
+.news-links .nl-no {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  color: var(--seal);
+  flex-shrink: 0;
+}
+
+.news-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.news-links a:hover {
+  color: var(--seal);
+  border-bottom-color: var(--seal);
+}
+
+.news-links .nl-src {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--ink-faint);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 640px) {
+  .news-links li { flex-wrap: wrap; gap: 8px 12px; padding: 10px 0; }
+  .news-links .nl-src { margin-left: 28px; }
+}
+
 /* ---------- 页脚 ---------- */
 .footer {
   border-top: 1px solid var(--line);
