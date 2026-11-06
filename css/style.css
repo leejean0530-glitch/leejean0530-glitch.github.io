@@ -41,14 +41,31 @@ img { display: block; width: 100%; height: auto; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 6vw;
+  padding: 12px 6vw 8px;
   background: rgba(250, 247, 241, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 加载提示条：导航栏第二行 */
+.nav-hint {
+  margin: 7px 0 0;
+  padding: 5px 0 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #8A8375;
+}
+
+/* 电脑显示完整版，隐藏短句 */
+.hint-mini { display: none; }
 
 .nav-logo {
   font-size: 17px;
@@ -79,7 +96,7 @@ img { display: block; width: 100%; height: auto; }
 /* ---------- Hero 个人信息区 ---------- */
 .hero {
   position: relative;
-  padding: 150px 6vw 90px;
+  padding: 178px 6vw 90px;
   text-align: center;
   max-width: 1080px;
   margin: 0 auto;
@@ -461,7 +478,10 @@ a.contact-item:hover {
 @media (max-width: 640px) {
   .nav { padding: 12px 5vw; }
   .nav-links a { margin-left: 14px; font-size: 12px; }
-  .hero { padding: 120px 5vw 70px; }
+  .hero { padding: 150px 5vw 70px; }
+  .nav-hint { font-size: 10px; letter-spacing: 0; }
+  .hint-full { display: none; }
+  .hint-mini { display: inline; }
   .hero-deco { top: 90px; height: 210px; }  /* 小屏远山略收矮 */
   .gallery { padding: 70px 5vw; }
   .grid-news { grid-template-columns: 1fr; }
