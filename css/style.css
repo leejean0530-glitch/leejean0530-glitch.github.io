@@ -129,42 +129,6 @@ img { display: block; width: 100%; height: auto; }
 
 .hero-avatar:hover img { transform: scale(1.05); }
 
-/* ---------- 头像 + 手绘气泡组合 ---------- */
-.hero-figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin: 0 auto 28px;
-  max-width: 520px;
-}
-.hero-figure .hero-avatar {
-  margin: 0;
-  flex: none;
-}
-.hero-bubble {
-  position: relative;
-  width: 210px;
-  flex: none;
-}
-.bubble-bg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.bubble-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 30px 38px;
-  font-size: 12px;
-  line-height: 1.75;
-  color: #444441;
-}
-
 .hero-name {
   font-size: clamp(36px, 6vw, 56px);
   font-weight: 500;
@@ -499,8 +463,6 @@ a.contact-item:hover {
   .nav-links a { margin-left: 14px; font-size: 12px; }
   .hero { padding: 120px 5vw 70px; }
   .hero-deco { top: 90px; height: 210px; }  /* 小屏远山略收矮 */
-  .hero-figure { flex-direction: column; gap: 8px; }
-  .hero-bubble { width: 190px; }
   .gallery { padding: 70px 5vw; }
   .grid-news { grid-template-columns: 1fr; }
   .grid-campus { grid-template-columns: 1fr; }
