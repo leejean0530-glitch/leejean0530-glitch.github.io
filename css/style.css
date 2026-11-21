@@ -70,6 +70,7 @@ img { display: block; width: 100%; height: auto; }
 .nav-logo {
   font-size: 17px;
   letter-spacing: 4px;
+  white-space: nowrap;
   color: var(--ink);
   text-decoration: none;
 }
@@ -287,7 +288,7 @@ img { display: block; width: 100%; height: auto; }
 
 .grid-news { grid-template-columns: repeat(2, 1fr); }      /* 新闻：2 列大图 */
 .grid-campus { grid-template-columns: repeat(2, 1fr); }     /* 风景：2 列大图，同新闻 */
-.grid-portrait { grid-template-columns: repeat(2, 1fr); }   /* 人物：2 列竖图 */
+.grid-portrait { grid-template-columns: repeat(2, 1fr); }   /* 人物：2 列横图 */
 .grid-other { grid-template-columns: repeat(2, 1fr); }      /* 其他：2 列大图，同新闻 */
 
 /* 单张作品卡片 */
@@ -305,7 +306,7 @@ img { display: block; width: 100%; height: auto; }
   object-fit: cover;
 }
 
-.grid-portrait .work img { aspect-ratio: 3 / 4; }
+.grid-portrait .work img { aspect-ratio: 4 / 3; }
 
 /* grid-other 不再强制 1:1，使用默认 4:3，与新闻一致 */
 
